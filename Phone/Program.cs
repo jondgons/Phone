@@ -13,28 +13,65 @@ namespace Phone
         }
     }
 
-    class PhoneTypeChecker
-    {
 
+
+    class PhoneTypeChecker : IPhoneFactory
+    {
+        public IPhoneFactory factory;
+        public Manufacturers manu;
+
+        public PhoneTypeChecker(Manufacturers m)
+        {
+
+        }
+
+        public void CheckProducts()
+        {
+
+        }
+
+        public ISmart GetSmart()
+        {
+
+        }
+
+        string ISmart.GetName()
+        {
+
+        }
+
+        public IDumb GetDumb()
+        {
+
+        }
+
+        string IDumb.GetName()
+        {
+
+        }
     }
 
     enum Manufacturers
     {
-
+        SAMSUNG,
+        HTC,
+        NOKIA
     }
 
-    interface IPhoneFactory
+    interface IPhoneFactory : ISmart , IDumb
     {
+        ISmart GetSmart();
 
+        IDumb GetDumb();
     }
 
     interface ISmart
     {
-
+        string GetName();
     }
 
     interface IDumb
     {
-
+        string GetName();
     }
 }
